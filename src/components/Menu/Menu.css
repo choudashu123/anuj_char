@@ -36,11 +36,25 @@
   padding: 0 0.7em 0.1em 1em;
 }
 
+
 .menu-logo a {
-  position: relative;
-  display: inline-block;
-  top: -0.05em;
+  /* position: relative;
+  display: inline-block; */
+  /* top: -0.05em; */
   color: var(--bg);
+  display: flex;
+  align-items: center;
+}
+
+.menu-logo-img {
+  height: 80px;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .menu-logo-img {
+    height: 30px;
+  }
 }
 
 .menu-actions {

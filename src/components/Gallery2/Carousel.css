@@ -1,0 +1,73 @@
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 140px 0;
+  /* background-color: black; */
+}
+
+
+/* Track */
+.carousel-track {
+  display: flex;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+/* Slides */
+.carousel-slide {
+  min-width: 33.333%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    min-width: 100%;
+  }
+
+  .carousel-wrapper {
+    padding: 40px 0;
+  }
+}
+
+/* Center slide emphasis */
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Text */
+.carousel-slide h3 {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Navigation */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 40px;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav.prev {
+  left: 10px;
+}
+
+.nav.next {
+  right: 10px;
+}

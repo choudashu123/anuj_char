@@ -15,14 +15,30 @@ import ReactLenis from "lenis/react";
 gsap.registerPlugin(ScrollTrigger);
 
 import Transition from "../../components/Transition/Transition";
+import { ImGlass2 } from "react-icons/im";
+import Carousel from "../../components/Gallery2/Carousel";
 
 const Home = () => {
   const workItems = Array.isArray(workList) ? workList : [];
-  console.log(workItems)
   const stickyTitlesRef = useRef(null);
   const titlesRef = useRef([]);
   const stickyWorkHeaderRef = useRef(null);
   const homeWorkRef = useRef(null);
+
+  useEffect(() => {
+    // ... your existing GSAP code ...
+
+    // Important: Refresh after a small timeout to ensure 
+    // all DOM elements and sub-components (like Gallery) are rendered
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      // ... your existing cleanup ...
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -134,20 +150,49 @@ const Home = () => {
     };
   }, []);
 
+  // useEffect(() => {
+  //   const iframe = document.querySelector(".hero-img iframe");
+  //   if (!iframe) return;
+
+  //   function resizeVideo() {
+  //     const container = document.querySelector(".hero-img");
+
+  //     const containerWidth = container.offsetWidth;
+  //     const containerHeight = container.offsetHeight;
+  //     const containerRatio = containerWidth / containerHeight;
+
+  //     const videoRatio = 16 / 9;
+
+  //     if (containerRatio > videoRatio) {
+  //       iframe.style.width = containerWidth + "px";
+  //       iframe.style.height = containerWidth / videoRatio + "px";
+  //     } else {
+  //       iframe.style.height = containerHeight + "px";
+  //       iframe.style.width = containerHeight * videoRatio + "px";
+  //     }
+
+  //     iframe.style.position = "absolute";
+  //     iframe.style.top = "50%";
+  //     iframe.style.left = "50%";
+  //     iframe.style.transform = "translate(-50%, -50%)";
+  //     iframe.style.pointerEvents = "none";
+  //   }
+
+  //   resizeVideo();
+  //   window.addEventListener("resize", resizeVideo);
+
+  //   return () => window.removeEventListener("resize", resizeVideo);
+  // }, []);
+
 
   return (
     <ReactLenis root>
       <div className="page home">
         <section className="hero">
-        <div className="hero-img">
-             <iframe
-    src="https://player.vimeo.com/video/1144409708?autoplay=1&muted=1&loop=1&background=1"
-    frameBorder="0"
-    allow="autoplay; fullscreen"
-    allowFullScreen
-    title="Hero Video"
-    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-  ></iframe>
+          <div className="hero-img">
+            <img
+              src="../../public/home/Hero_img2.jpg"
+            ></img>
           </div>
           <div className="hero-header">
             <AnimatedCopy tag="h1" animateOnScroll={false} delay={0.7}>
@@ -169,11 +214,11 @@ const Home = () => {
             <p className="primary sm">Open to Collaborations</p>
           </div>
           <h2 ref={(el) => (titlesRef.current[0] = el)}>
-          I craft moments that captivate audiences with live energy and charisma.</h2>
+            I craft moments that captivate audiences with live energy and charisma.</h2>
           <h2 ref={(el) => (titlesRef.current[1] = el)}>
-          Each event is driven by connection, spontaneity, and unforgettable presence.</h2>
+            Each event is driven by connection, spontaneity, and unforgettable presence.</h2>
           <h2 ref={(el) => (titlesRef.current[2] = el)}>
-          This portfolio is a glimpse into the stages that ignite me.
+            This portfolio is a glimpse into the stages that ignite me.
           </h2>
         </section>
 
@@ -197,9 +242,14 @@ const Home = () => {
                 )} - ${String(workItems.length).padStart(2, "0")}`}</p>
                 <h3>{work.title}</h3>
                 <div className="work-item-img">
-                <iframe width="560" height="315" src={work.image} 
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe
+                    src={work.image}
+                    title="YouTube video player"
+                    frameBorder="0" // Changed from frameborder
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin" // Changed from referrerpolicy
+                    allowFullScreen // Changed from allowfullscreen
+                  />
                 </div>
                 <h4>{work.category}</h4>
               </Link>
@@ -208,26 +258,27 @@ const Home = () => {
         </section>
 
         <Reviews />
+        <Carousel />
 
         <section className="hobbies">
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-            WEDDINGS
+              WEDDINGS
             </AnimatedCopy>
           </div>
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-            CORPORATE EVENTS
+              CORPORATE EVENTS
             </AnimatedCopy>
           </div>
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-            SOCIAL EVENTS
+              SOCIAL EVENTS
             </AnimatedCopy>
           </div>
           <div className="hobby">
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-            SPORTS EVENTS
+              SPORTS EVENTS
             </AnimatedCopy>
           </div>
         </section>

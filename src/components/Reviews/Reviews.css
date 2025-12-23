@@ -4,7 +4,7 @@
   height: 100svh;
   padding: 4em 2em;
   background-color: var(--bg);
-  color: var(--bg);
+  /* color: var(--bg); */
   text-align: center;
   display: flex;
   flex-direction: column;

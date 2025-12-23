@@ -13,21 +13,21 @@ const workList = [
   },
   {
     id: 3,
-    title: "Birla RCB Event",
+    title: "Myntra Confluence Event",
     category: "Corporate Event",
-    image: "https://player.vimeo.com/video/1144424453?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    image: "https://www.youtube.com/embed/XH3rJE6MBcM?si=GR3tt4BQzrVv9l8",
   },
   {
     id: 4,
-    title: "Birla RCB Event",
+    title: "Times Health Icons, Bhubneshwar",
     category: "Corporate Event",
-    image: "https://player.vimeo.com/video/1144424453?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    image: "https://www.youtube.com/embed/fyla3m6wtY4?si=qq15wDRup-2kJjBj",
   },
   {
     id: 5,
-    title: "Birla RCB Event",
+    title: "One Zeiss Awards Event",
     category: "Corporate Event",
-    image: "https://player.vimeo.com/video/1144424453?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    image: "https://www.youtube.com/embed/Rw2GNZRR1MM?si=laES5YUAqHBYNFTd",
   },
   {
     id: 6,

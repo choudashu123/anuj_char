@@ -1,9 +1,27 @@
 @import "./fonts.css";
 
+@font-face {
+  font-family: "BankGothic";
+  src: url("/fonts/Bank-Gothic-Font/BankGothicMediumBT.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "BankGothic";
+  src: url("/src/assets/fonts/BankGothic Bold.ttf") format(".ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} */
+
 :root {
-  --bg: #0c0c0c;
+  /* --bg: #0c0c0c; */
+  --bg: #e3e3db;
   --bg200: rgba(227, 227, 219, 0.25);
-  --fg: azure;
+  /* --fg: azure; */
+  --fg: #0f0f0f;
   --fg200: #1f1f1f;
   --ht: azure;
 }
@@ -15,9 +33,12 @@
 }
 
 body {
-  font-family: "Messina Sans";
+  font-family: "BankGothic";
   background-color: var(--bg);
   color: var(--fg);
+  /* overflow-x: hidden; */
+  font-weight: 400;
+  font-style: normal;
 }
 
 img {
@@ -34,8 +55,11 @@ h3,
 h4,
 h5 {
   text-transform: uppercase;
-  font-family: "Rader";
-  color: azure;
+  /* font-family: "Rader"; */
+  font-family: "BankGothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  /* color: azure; */
 }
 
 h1 {

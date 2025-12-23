@@ -1,0 +1,41 @@
+/* Gallery3.css */
+
+/* Wrap the gallery to ensure it occupies space in the document flow */
+.gallery-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: #000;
+  /* Dark background to see the white logo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  align-self: center;
+}
+
+/* Ensure the fade effect works correctly */
+.carousel.carousel-fade .carousel-item {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.carousel.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-inner {
+  height: 100vh;
+  /* Force the container to hold the height */
+}
+
+.carousel-item {
+  height: 100vh;
+}

@@ -14,7 +14,7 @@ const Footer = () => {
           </h3>
 
           <p className="secondary">
-          From live shows to digital broadcasts — I’m always ready to collaborate. Let’s create something unforgettable.
+            From live shows to digital broadcasts — I’m always ready to collaborate. Let’s create something unforgettable.
           </p>
 
           <Link to="/contact" className="btn">
@@ -49,15 +49,15 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="footer-row">
+      <div className="footer-row" id="footer-row-bottom">
         <div className="footer-header">
-          <h1>Anuj</h1>
-          <h1>Char</h1>
+          <h1 className="footer-row-bottom-title">Anuj</h1>
+          <h1 className="footer-row-bottom-title">Char</h1>
         </div>
 
         <div className="footer-copyright-line">
-          <p className="primary sm">&copy; Anuj Char 2025</p>
-          <p className="primary sm">Designed & Developed by Viral Inbound</p>
+          <p className="primary sm footer-row-bottom-title">&copy; Anuj Char 2025</p>
+          <p className="primary sm footer-row-bottom-title">Designed & Developed by Viral Inbound</p>
         </div>
       </div>
     </div>

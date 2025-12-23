@@ -72,6 +72,14 @@
   text-align: center;
 }
 
+.primary {
+  /* color: aliceblue !important; */
+}
+
+.project-title-123 {
+  color: aliceblue !important;
+}
+
 @media (max-width: 1000px) {
   .work-items-preview-container {
     width: 100%;

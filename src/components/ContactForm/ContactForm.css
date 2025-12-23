@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 4em;
   margin: 2em;
-  background-color: var(--bg);
+  background-color: var(--fg);
   border-radius: 1em;
 }
 
@@ -12,7 +12,8 @@
 .contact-form p,
 .contact-form input,
 .contact-form textarea {
-  color: var(--ht);
+  color: var(--bg);
+  /* color: black; */
 }
 
 .contact-form input,
@@ -99,6 +100,7 @@
   .contact-form {
     margin: 1.25em;
   }
+
   .contact-form-row:nth-child(1) {
     flex-direction: column;
     gap: 0.25em;

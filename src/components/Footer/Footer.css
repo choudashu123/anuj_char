@@ -9,6 +9,18 @@
   overflow: hidden;
 }
 
+#footer-row-bottom {
+  border-radius: 25px;
+  background-color: black;
+  overflow: hidden;
+  padding: 1em;
+  margin-top: 2rem;
+}
+
+.footer-row-bottom-title {
+  color: antiquewhite !important;
+}
+
 .footer-row:nth-child(1) {
   display: flex;
   justify-content: space-between;

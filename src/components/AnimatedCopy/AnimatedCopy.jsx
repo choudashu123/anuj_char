@@ -29,7 +29,6 @@ const AnimatedCopy = ({
   useEffect(() => {
     setCopyId(`copy-${Math.floor(Math.random() * 10000)}`);
   }, []);
-
   useEffect(() => {
     if (!copyId || !copyRef.current) return;
 
@@ -75,12 +74,12 @@ const AnimatedCopy = ({
         },
         ...(animateOnScroll
           ? {
-              scrollTrigger: {
-                trigger: copyRef.current,
-                start: "top 80%",
-                toggleActions: "play none none none",
-              },
-            }
+            scrollTrigger: {
+              trigger: copyRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
           : {}),
       });
 
