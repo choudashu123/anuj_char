@@ -36,6 +36,13 @@
 
   .carousel-wrapper {
     padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-track {
+    width: 95%;
   }
 }
 

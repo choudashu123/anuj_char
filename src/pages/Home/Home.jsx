@@ -182,17 +182,16 @@ const Home = () => {
   }, []);
 
 
-  useEffect(() => {
-    const mic1DOM = document.querySelector(".mic1")
-    const modelsWrapperRect = modelsWrapperRef.current.getBoundingClientRect()
-    if (modelsWrapperRef.current) {
-      console.log("bottom", modelsWrapperRect.bottom)
-      if (modelsWrapperRect.bottom < window.innerHeight) {
-        mic1DOM.style.position = "absolute"
-        console.log("Hello")
-      }
-    }
-  }, [])
+  // useEffect(() => {
+  //   const mic1DOM = document.querySelector(".mic1")
+  //   const modelsWrapperRect = modelsWrapperRef.current.getBoundingClientRect()
+  //   if (modelsWrapperRef.current) {
+  //     if (modelsWrapperRect.bottom < window.innerHeight) {
+  //       mic1DOM.style.position = "absolute"
+  //       console.log("Hello")
+  //     }
+  //   }
+  // }, [])
 
   useEffect(() => {
     // Select all the containers for the iframes
@@ -238,25 +237,25 @@ const Home = () => {
       });
 
       // EXIT (SMOOTH + CINEMATIC)
-      gsap.to(heroImgRef.current, {
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "center top", // 👈 controls smoothness
-          scrub: true,     // 👈 smooth interpolation
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          markers: true, // enable only for debugging
-        },
-        rotationX: 16,
-        rotationY: 26,
-        xPercent: -5,
-        x: 50,
-        yPercent: 2,        // optional vertical correction        z: -120,
-        scale: 1,
-        ease: "power2.out",
-        transformPerspective: 1200,
-      });
+      // gsap.to(heroImgRef.current, {
+      //   scrollTrigger: {
+      //     trigger: heroRef.current,
+      //     start: "top top",
+      //     end: "center top", // 👈 controls smoothness
+      //     scrub: true,     // 👈 smooth interpolation
+      //     anticipatePin: 1,
+      //     invalidateOnRefresh: true,
+      //     markers: true, // enable only for debugging
+      //   },
+      //   rotationX: 16,
+      //   rotationY: 26,
+      //   xPercent: -5,
+      //   x: 50,
+      //   yPercent: 2,        // optional vertical correction        z: -120,
+      //   scale: 1,
+      //   ease: "power2.out",
+      //   transformPerspective: 1200,
+      // });
 
     });
 

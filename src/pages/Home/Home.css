@@ -130,6 +130,16 @@
   width: 30%;
 }
 
+@media (max-width: 768px) {
+  .mic1 {
+    width: 70%;
+    /* ⬅️ bigger */
+    height: 120%;
+    /* ⬅️ taller */
+    transform: translate(-50%, -50%);
+  }
+}
+
 .stage {
   position: absolute;
   left: 50%;
