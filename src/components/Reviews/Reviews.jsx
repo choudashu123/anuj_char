@@ -133,6 +133,18 @@ const Reviews = () => {
 
   return (
     <section className="reviews" ref={reviewsContainerRef}>
+      <model-viewer
+        className="mic1"
+        id="testimonial_button"
+        src="./3d-models/chat-bubble.fbx.glb"
+        camera-orbit="0deg 90deg auto"
+        interaction-prompt="none"
+        auto-rotate
+        rotation-per-second="30deg"
+        orientation="0deg 20deg 0deg"
+        shadow-intensity="1"
+        shadow-softness="0.9"
+      ></model-viewer>
       <h3 id="quote-icon">
         <BiSolidQuoteLeft />
       </h3>
@@ -146,9 +158,8 @@ const Reviews = () => {
         {reviews.map((review, index) => (
           <div
             key={review.id}
-            className={`review-thumbnail ${
-              index === activeReview ? "active" : ""
-            }`}
+            className={`review-thumbnail ${index === activeReview ? "active" : ""
+              }`}
             onClick={() => handleReviewClick(index)}
           >
             <img src={review.image} alt={`Review by ${review.author}`} />

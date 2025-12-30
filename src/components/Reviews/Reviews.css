@@ -29,11 +29,14 @@
   flex-direction: column;
   gap: 2em;
   padding: 2em;
+  z-index: 60;
+  /* backdrop-filter: blur(2px); */
 }
 
 #quote-icon {
   position: absolute;
   top: 25%;
+  z-index: 60;
 }
 
 .reviews-list {
@@ -44,6 +47,8 @@
   display: flex;
   gap: 0.5em;
 }
+
+
 
 .review-thumbnail {
   aspect-ratio: 5/3;

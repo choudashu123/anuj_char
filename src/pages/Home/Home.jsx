@@ -19,6 +19,7 @@ import { ImGlass2 } from "react-icons/im";
 import Carousel from "../../components/Gallery2/Carousel";
 import { cloudyNight } from "ionicons/icons";
 import SplineDemo from "./Spline";
+import ImageGallerySlider from "../../components/Carousel/ImageGallerySlider";
 
 const Home = () => {
   const workItems = Array.isArray(workList) ? workList : [];
@@ -41,6 +42,39 @@ const Home = () => {
       repeat: -1,
       ease: "linear"
     });
+  }, []);
+
+  useEffect(() => {
+    // Array of your model IDs
+    const modelIds = ["#mic_silver", "#play_button", "#testimonial_button"];
+
+    const applySilverTexture = (event) => {
+      const modelViewer = event.target;
+      if (modelViewer.model && modelViewer.model.materials.length > 0) {
+        modelViewer.model.materials.forEach((material) => {
+          const pbr = material.pbrMetallicRoughness;
+          pbr.setBaseColorFactor([0.75, 0.75, 0.75, 1]); // Grey Silver
+          pbr.setMetallicFactor(1.0);                   // High Shine
+          pbr.setRoughnessFactor(0.1);                  // Smooth surface
+        });
+      }
+    };
+
+    // Attach the listener to both models
+    modelIds.forEach((id) => {
+      const el = document.querySelector(id);
+      if (el) {
+        el.addEventListener("load", applySilverTexture);
+      }
+    });
+
+    // Cleanup
+    return () => {
+      modelIds.forEach((id) => {
+        const el = document.querySelector(id);
+        if (el) el.removeEventListener("load", applySilverTexture);
+      });
+    };
   }, []);
 
 
@@ -84,6 +118,8 @@ const Home = () => {
       pin: true,
       pinSpacing: true,
     });
+
+
 
     const masterTimeline = gsap.timeline({
       scrollTrigger: {
@@ -187,8 +223,9 @@ const Home = () => {
           scrollTrigger: {
             trigger: img,
             start: "top bottom",
-            end: "top 30%",
+            end: "top center",
             scrub: true,
+            // markers: true,
           },
         }
       );
@@ -251,6 +288,7 @@ const Home = () => {
 
           <model-viewer
             className="mic1"
+            id="mic_silver"
             src="./3d-models/mic-silver.glb"
             camera-orbit="0deg 90deg auto"
             interaction-prompt="none"
@@ -271,9 +309,20 @@ const Home = () => {
 
         <section ref={stickyWorkHeaderRef} className="sticky-work-header">
           <AnimatedCopy tag="h1" animateOnScroll="true">
-            Char selects
+            <span>Char selects</span>
           </AnimatedCopy>
-
+          <model-viewer
+            className="mic1"
+            id="play_button"
+            src="./3d-models/play.fbx.glb"
+            camera-orbit="0deg 90deg auto"
+            interaction-prompt="none"
+            auto-rotate
+            rotation-per-second="30deg"
+            orientation="0deg 20deg 0deg"
+            shadow-intensity="1"
+            shadow-softness="0.9"
+          ></model-viewer>
         </section>
 
         <section ref={homeWorkRef} className="home-work">
@@ -305,6 +354,8 @@ const Home = () => {
             ))}
           </div>
         </section>
+
+        {/* <section className="dummy-experiment" ref={dummyRef}>Hello</section> */}
         <Reviews />
         <Carousel />
 

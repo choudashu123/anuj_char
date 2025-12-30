@@ -1,7 +1,6 @@
 .page {
   box-sizing: border-box;
   width: 100%;
-  background-color: aqua;
   overflow: hidden;
 }
 
@@ -59,7 +58,6 @@
 .sticky-titles {
   position: relative;
   width: 100%;
-  background-color: aquamarine;
   height: 100svh;
   overflow: hidden;
   padding: 2em;
@@ -107,11 +105,11 @@
   text-align: center;
   overflow: hidden;
   z-index: 1;
-  /* background-color: aqua; */
 }
 
 .sticky-work-header h1 {
   opacity: 0.125;
+  z-index: 60;
   line-height: 1;
 }
 
@@ -229,6 +227,12 @@
   gap: 2em;
 }
 
+.home-work-item h3,
+p,
+h4 {
+  z-index: 60;
+}
+
 .work-item-img {
   position: relative;
   z-index: 20;
@@ -300,4 +304,10 @@
   .hobby {
     aspect-ratio: 5/3;
   }
+}
+
+.dummy-experiment {
+  height: 100vh;
+  width: 100%;
+  background-color: aqua;
 }
