@@ -18,7 +18,9 @@
 
 :root {
   /* --bg: #0c0c0c; */
-  --bg: #e3e3db;
+  /* --bg: #e3e3db; */
+  --bg: #f5f59e;
+
   --bg200: rgba(227, 227, 219, 0.25);
   /* --fg: azure; */
   --fg: #0f0f0f;

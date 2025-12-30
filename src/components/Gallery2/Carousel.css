@@ -26,6 +26,7 @@
   align-items: flex-end;
   padding: 20px;
   box-sizing: border-box;
+  border-radius: 1em;
 }
 
 @media (max-width: 768px) {
