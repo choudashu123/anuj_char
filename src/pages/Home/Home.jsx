@@ -44,28 +44,15 @@ const Home = () => {
   }, []);
 
 
-  // useEffect(() => {
-  //   if (mic2ModelRef.current) {
-  //     // This manually pushes the speed into the 3D engine
-  //     gsap.set(mic2ModelRef.current, {
-  //       attr: { "rotation-speed": "14" }
-  //     });
-  //   }
-  // }, []);
 
 
   useEffect(() => {
-    // ... your existing GSAP code ...
-
-    // Important: Refresh after a small timeout to ensure 
-    // all DOM elements and sub-components (like Gallery) are rendered
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 100);
 
     return () => {
       clearTimeout(timer);
-      // ... your existing cleanup ...
     };
   }, []);
 
@@ -182,27 +169,16 @@ const Home = () => {
   }, []);
 
 
-  // useEffect(() => {
-  //   const mic1DOM = document.querySelector(".mic1")
-  //   const modelsWrapperRect = modelsWrapperRef.current.getBoundingClientRect()
-  //   if (modelsWrapperRef.current) {
-  //     if (modelsWrapperRect.bottom < window.innerHeight) {
-  //       mic1DOM.style.position = "absolute"
-  //       console.log("Hello")
-  //     }
-  //   }
-  // }, [])
 
   useEffect(() => {
-    // Select all the containers for the iframes
     const workImgs = gsap.utils.toArray(".work-item-img");
 
     workImgs.forEach((img) => {
       gsap.fromTo(
         img,
         {
-          scale: 0.7, // Start smaller
-          opacity: 0, // Optional: start faded out
+          scale: 0.7,
+          opacity: 0,
         },
         {
           scale: 1,
@@ -210,15 +186,14 @@ const Home = () => {
           ease: "none",
           scrollTrigger: {
             trigger: img,
-            start: "top bottom", // Animation starts when the top of the img hits the bottom of the screen
-            end: "top 30%",     // Animation ends when the top of the img reaches 20% from the top
+            start: "top bottom",
+            end: "top 30%",
             scrub: true,
           },
         }
       );
     });
 
-    // Cleanup triggers on unmount
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
@@ -236,31 +211,12 @@ const Home = () => {
         delay: 0.2
       });
 
-      // EXIT (SMOOTH + CINEMATIC)
-      // gsap.to(heroImgRef.current, {
-      //   scrollTrigger: {
-      //     trigger: heroRef.current,
-      //     start: "top top",
-      //     end: "center top", // 👈 controls smoothness
-      //     scrub: true,     // 👈 smooth interpolation
-      //     anticipatePin: 1,
-      //     invalidateOnRefresh: true,
-      //     markers: true, // enable only for debugging
-      //   },
-      //   rotationX: 16,
-      //   rotationY: 26,
-      //   xPercent: -5,
-      //   x: 50,
-      //   yPercent: 2,        // optional vertical correction        z: -120,
-      //   scale: 1,
-      //   ease: "power2.out",
-      //   transformPerspective: 1200,
-      // });
 
     });
 
     return () => ctx.revert();
   }, []);
+
 
 
 
@@ -292,17 +248,7 @@ const Home = () => {
             <p className="primary sm">Captivating audiences, one moment at a time.</p>
             <p className="primary sm">Open to Collaborations</p>
           </div>
-          {/* <model-viewer
-            className="mic1"
-            src="./3d-models/ys_mic.glb"
-            camera-orbit="0deg 90deg auto"
-            interaction-prompt="none"
-            auto-rotate
-            rotation-per-second="30deg"
-            orientation="0deg 20deg 0deg"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-          ></model-viewer> */}
+
           <model-viewer
             className="mic1"
             src="./3d-models/mic-silver.glb"
@@ -314,19 +260,6 @@ const Home = () => {
             shadow-intensity="1"
             shadow-softness="0.9"
           ></model-viewer>
-          {/* <model-viewer
-            className="mic2"
-            src="./3d-models/mic.glb"
-            disable-zoom
-            camera-orbit="0deg 90deg auto"
-            rotation-per-second="30deg"
-            orientation="0deg 0deg 180deg"
-
-            interaction-prompt="none"
-            auto-rotate
-            shadow-intensity="1"
-            shadow-softness="1"
-          ></model-viewer> */}
           <h2 ref={(el) => (titlesRef.current[0] = el)}>
             I craft moments that captivate audiences with live energy and charisma.</h2>
           <h2 ref={(el) => (titlesRef.current[1] = el)}>
@@ -340,104 +273,38 @@ const Home = () => {
           <AnimatedCopy tag="h1" animateOnScroll="true">
             Char selects
           </AnimatedCopy>
-          {/* <model-viewer
-            className="stage"
-            src="./3d-models/stage/scene.gltf"
-            camera-orbit="0deg 90deg auto"
-            interaction-prompt="none"
-            rotation-per-second="30deg"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-          ></model-viewer> */}
-          {/* <model-viewer
-            className="stage2"
-            src="./3d-models/small_stage.glb"
-            camera-orbit="0deg 90deg auto"
-            interaction-prompt="none"
-            rotation-per-second="30deg"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            orientation="0deg 0deg -90deg"
-          ></model-viewer> */}
-          {/* <model-viewer
-            className="stage3"
-            src="./3d-models/softbox.glb"
-            camera-orbit="0deg 90deg auto"
-            interaction-prompt="none"
-            rotation-per-second="30deg"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            orientation="0deg 0deg -90deg"
-          ></model-viewer>
-          <model-viewer
-            className="stage4"
-            src="./3d-models/old_camera.glb"
-            camera-orbit="0deg 90deg auto"
-            interaction-prompt="none"
-            rotation-per-second="30deg"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            orientation="0deg 0deg -90deg"
-          ></model-viewer>
-          <model-viewer
-            className="stage5"
-            src="./3d-models/headphones.glb"
-            camera-orbit="0deg 90deg auto"
-            interaction-prompt="none"
-            rotation-per-second="30deg"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            orientation="0deg 0deg -90deg"
-          ></model-viewer> */}
+
         </section>
 
         <section ref={homeWorkRef} className="home-work">
-          <div className="models-wrapper" ref={modelsWrapperRef}>
-            {/* <div className="mic">
-              <model-viewer ref={micModelRef}
-                src="./3d-models/ys_mic.glb"
-                camera-controls
-                camera-orbit="0deg 90deg auto"
-                interaction-prompt="none"
-              ></model-viewer>
-            </div>
-            <model-viewer ref={mic2ModelRef}
-              src="./3d-models/mic.glb"
-              camera-controls
-              auto-rotate
-              rotation-speed="14"
-              // camera-orbit="0deg 90deg auto"
-              interaction-prompt="none"
-            ></model-viewer> */}
-            <div className="home-work-list">
-              {workItems.map((work, index) => (
-                <Link
-                  to="/sample-project"
-                  key={work.id}
-                  className="home-work-item"
-                >
-                  <p className="primary sm">{`${String(index + 1).padStart(
-                    2,
-                    "0"
-                  )} - ${String(workItems.length).padStart(2, "0")}`}</p>
-                  <h3>{work.title}</h3>
-                  <div className="work-item-img">
-                    <iframe
-                      src={work.image}
-                      title="YouTube video player"
-                      frameBorder="0" // Changed from frameborder
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin" // Changed from referrerpolicy
-                      allowFullScreen // Changed from allowfullscreen
-                    />
-                  </div>
-                  <h4>{work.category}</h4>
-                </Link>
-              ))}
-            </div>
+
+          <div className="home-work-list">
+            {workItems.map((work, index) => (
+              <Link
+                to="/sample-project"
+                key={work.id}
+                className="home-work-item"
+              >
+                <p className="primary sm">{`${String(index + 1).padStart(
+                  2,
+                  "0"
+                )} - ${String(workItems.length).padStart(2, "0")}`}</p>
+                <h3>{work.title}</h3>
+                <div className="work-item-img">
+                  <iframe
+                    src={work.image}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+                <h4>{work.category}</h4>
+              </Link>
+            ))}
           </div>
         </section>
-        {/* <SplineDemo /> */}
         <Reviews />
         <Carousel />
 

@@ -1,6 +1,13 @@
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: aqua;
+  overflow: hidden;
+}
+
 .hero {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100svh;
   overflow: hidden;
   display: flex;
@@ -38,7 +45,7 @@
 
 .hero-header {
   position: relative;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   z-index: 1;
@@ -51,7 +58,8 @@
 
 .sticky-titles {
   position: relative;
-  width: 100vw;
+  width: 100%;
+  background-color: aquamarine;
   height: 100svh;
   overflow: hidden;
   padding: 2em;
@@ -90,7 +98,7 @@
 
 .sticky-work-header {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100svh;
   padding: 2em;
   display: flex;
@@ -241,7 +249,7 @@
 }
 
 .hobbies {
-  width: 100vw;
+  width: 100%;
   padding: 2em;
   padding-bottom: 0;
   display: flex;
