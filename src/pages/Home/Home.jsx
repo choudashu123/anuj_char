@@ -29,6 +29,8 @@ const Home = () => {
   const modelsWrapperRef = useRef(null)
   const micModelRef = useRef(null)
   const mic2ModelRef = useRef(null)
+  const heroRef = useRef(null)
+  const heroImgRef = useRef(null)
 
   useEffect(() => {
     if (!micModelRef.current) return;
@@ -212,7 +214,6 @@ const Home = () => {
             start: "top bottom", // Animation starts when the top of the img hits the bottom of the screen
             end: "top 30%",     // Animation ends when the top of the img reaches 20% from the top
             scrub: true,
-            markers: true,      // Smoothly links the animation to the scroll position
           },
         }
       );
@@ -224,12 +225,51 @@ const Home = () => {
     };
   }, [workItems]); // Re-run if workItems change
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+      // ENTRY
+      gsap.from(heroRef.current, {
+        y: 500,
+        opacity: 0,
+        duration: 3,
+        ease: "power4.out",
+        delay: 0.2
+      });
+
+      // EXIT (SMOOTH + CINEMATIC)
+      gsap.to(heroImgRef.current, {
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "center top", // 👈 controls smoothness
+          scrub: true,     // 👈 smooth interpolation
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          markers: true, // enable only for debugging
+        },
+        rotationX: 16,
+        rotationY: 26,
+        xPercent: -5,
+        x: 50,
+        yPercent: 2,        // optional vertical correction        z: -120,
+        scale: 1,
+        ease: "power2.out",
+        transformPerspective: 1200,
+      });
+
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+
 
   return (
     <ReactLenis root>
       <div className="page home">
-        <section className="hero">
-          <div className="hero-img">
+        <section className="hero" ref={heroRef}>
+          <div className="hero-img" ref={heroImgRef}>
             <img
               src="../../public/home/Hero_img2.jpg"
             ></img>

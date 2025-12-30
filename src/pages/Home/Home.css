@@ -6,6 +6,7 @@
   display: flex;
   align-items: flex-end;
   padding: 2em;
+  perspective: 1500px;
 }
 
 .hero-img {
@@ -14,6 +15,8 @@
   left: 0;
   height: 100%;
   width: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
 
   /* background-color: aqua; */
 }
