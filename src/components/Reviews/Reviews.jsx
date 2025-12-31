@@ -136,7 +136,7 @@ const Reviews = () => {
       <model-viewer
         className="mic1"
         id="testimonial_button"
-        src="./3d-models/chat-bubble.fbx.glb"
+        src="https://my-3d-assets.pages.dev/chat-bubble.fbx.glb"
         camera-orbit="0deg 90deg auto"
         interaction-prompt="none"
         auto-rotate

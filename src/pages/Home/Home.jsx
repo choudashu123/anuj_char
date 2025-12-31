@@ -289,7 +289,7 @@ const Home = () => {
           <model-viewer
             className="mic1"
             id="mic_silver"
-            src="./3d-models/mic-silver.glb"
+            src="https://my-3d-assets.pages.dev/mic-silver.glb"
             camera-orbit="0deg 90deg auto"
             interaction-prompt="none"
             auto-rotate
@@ -314,7 +314,7 @@ const Home = () => {
           <model-viewer
             className="mic1"
             id="play_button"
-            src="./3d-models/play.fbx.glb"
+            src="https://my-3d-assets.pages.dev/play.fbx.glb"
             camera-orbit="0deg 90deg auto"
             interaction-prompt="none"
             auto-rotate
