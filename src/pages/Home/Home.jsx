@@ -358,6 +358,7 @@ const Home = () => {
         {/* <section className="dummy-experiment" ref={dummyRef}>Hello</section> */}
         <Reviews />
         <Carousel />
+        <ImageGallerySlider />
 
         <section className="hobbies">
           <div className="hobby">
