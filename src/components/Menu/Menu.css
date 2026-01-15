@@ -17,23 +17,26 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  pointer-events: all;
-  z-index: 100000;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+  overflow: visible;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+  /* Let clicks pass through, children are auto */
+  z-index: 100001;
+  /* Ensure distinct layer above .menu */
 }
 
 .menu-bar-container {
   background-color: transparent;
   width: 100%;
-  height: 110px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.7em 0.1em 1em;
+  height: 100%;
+  display: block;
+  /* Removed flex setup for custom positioning */
+  padding: 0;
 }
 
 
@@ -41,13 +44,34 @@
   /* position: relative;
   display: inline-block; */
   /* top: -0.05em; */
-  color: var(--fg);
+  color: #000;
   display: flex;
   align-items: center;
 }
 
+/* LOGO - TOP LEFT FIXED */
+.menu-logo {
+  position: fixed;
+  top: 2em;
+  left: 2em;
+  pointer-events: auto;
+  cursor: pointer;
+
+  /* Liquid Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 0.5em 1.5em;
+  /* Padding around logo */
+  z-index: 100002;
+}
+
 .menu-logo-img {
-  height: 125px;
+  height: 80px;
+  /* Reduced slightly for pill shape */
   align-self: center;
 }
 
@@ -63,12 +87,29 @@
   gap: 2em;
 }
 
+/* HAMBURGER - TOP RIGHT FIXED */
 .menu-toggle {
+  position: fixed;
+  top: 2em;
+  right: 2em;
   width: 60px;
   height: 60px;
+
+  /* Liquid Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  /* Circular button */
+
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  pointer-events: auto;
+  z-index: 100002;
+  cursor: pointer;
 }
 
 .hamburger-icon {
@@ -83,7 +124,7 @@
   background: rgba(0, 0, 0, 0.25);
   background: transparent;
   transition: all 300ms;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border: none;
 }
 
 .hamburger-icon:hover {
@@ -96,7 +137,7 @@
   position: absolute;
   width: 24px;
   height: 1.5px;
-  background: #fff;
+  background: #000;
   transition: all 300ms ease-in-out;
   transition-delay: 150ms;
   will-change: transform;
@@ -110,12 +151,18 @@
   transform: translateY(3px);
 }
 
+.active.hamburger-icon {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
 .active.hamburger-icon:before {
   transform: translateY(0) rotate(45deg);
+  background: #000;
 }
 
 .active.hamburger-icon:after {
   transform: translateY(0) rotate(-45deg);
+  background: #000;
 }
 
 .menu {
@@ -124,7 +171,12 @@
   left: 0;
   width: calc(100% - 4em);
   height: calc(100svh - 4em);
-  background: transparent;
+  /* Liquid Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -151,7 +203,7 @@
 
 .menu-link-item .menu-link-item-holder a {
   position: relative;
-  color: var(--ht);
+  color: #000;
   font-family: "BankGothic";
   font-size: 7vw;
   text-transform: uppercase;

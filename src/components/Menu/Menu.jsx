@@ -99,25 +99,6 @@ const Menu = () => {
       ease: "power4.inOut",
     });
 
-    const createMenuBarAnimation = () => {
-      if (menuBarAnimation.current) {
-        menuBarAnimation.current.kill();
-      }
-
-      const heightValue =
-        windowWidth < 1000 ? "calc(100% - 2.5em)" : "calc(100% - 4em)";
-
-      menuBarAnimation.current = gsap
-        .timeline({ paused: true })
-        .to(".menu-bar", {
-          duration: 1,
-          height: heightValue,
-          ease: "power4.inOut",
-        });
-    };
-
-    createMenuBarAnimation();
-
     menuLinksAnimation.current = gsap
       .timeline({ paused: true })
       .to(".menu-link-item-holder", {
@@ -132,43 +113,11 @@ const Menu = () => {
   useEffect(() => {
     if (isMenuOpen) {
       menuAnimation.current.play();
-      menuBarAnimation.current.play();
       menuLinksAnimation.current.play();
     } else {
       menuAnimation.current.reverse();
-      menuBarAnimation.current.reverse();
       menuLinksAnimation.current.reverse();
     }
-  }, [isMenuOpen]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isMenuOpen) return;
-
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY.current) {
-        gsap.to(".menu-bar", {
-          y: -200,
-          duration: 1,
-          ease: "power2.out",
-        });
-      } else {
-        gsap.to(".menu-bar", {
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        });
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, [isMenuOpen]);
 
   useEffect(() => {
@@ -185,7 +134,7 @@ const Menu = () => {
         <div className="menu-bar-container">
           <div className="menu-logo" onClick={closeMenu}>
             <Link to="/">
-              <img src="/home/White Logo.png" className="menu-logo-img"></img>
+              <img src="/home/Black Logo.png" className="menu-logo-img"></img>
             </Link>
           </div>
           <div className="menu-actions">
