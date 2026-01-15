@@ -263,7 +263,7 @@ const Home = () => {
         <section className="hero" ref={heroRef}>
           <div className="hero-img" ref={heroImgRef}>
             <img
-              src="../../public/home/Hero_img2.jpg"
+              src="/home/Hero_img2.jpg"
             ></img>
           </div>
           <div className="hero-header">
@@ -358,7 +358,6 @@ const Home = () => {
         {/* <section className="dummy-experiment" ref={dummyRef}>Hello</section> */}
         <Reviews />
         <Carousel />
-        <ImageGallerySlider />
 
         <section className="hobbies">
           <div className="hobby">
