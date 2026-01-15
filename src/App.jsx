@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import Menu from "./components/Menu/Menu";
+import Background from "./components/Background/Background";
 
 import Home from "./pages/Home/Home";
 import Work from "./pages/Work/Work";
@@ -10,6 +11,7 @@ import Project from "./pages/Project/Project";
 import About from "./pages/About/About";
 import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
+import Event from "./pages/Event/Event";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -31,6 +33,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <Background />
       <Menu />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
@@ -39,6 +42,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/events/:id" element={<Event />} />
           <Route path="/sample-project" element={<Project />} />
         </Routes>
       </AnimatePresence>

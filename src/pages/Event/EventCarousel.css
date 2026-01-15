@@ -1,0 +1,152 @@
+.event-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto 4em auto;
+    perspective: 1000px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-card {
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    z-index: 0;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000;
+}
+
+.carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Active Slide (Center) */
+.carousel-card.active {
+    opacity: 1;
+    transform: translateX(0) scale(1) translateZ(0);
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Next Slide (Right) */
+.carousel-card.next {
+    opacity: 0.6;
+    transform: translateX(50%) scale(0.85) translateZ(-100px) rotateY(-15deg);
+    z-index: 5;
+    filter: brightness(0.5);
+}
+
+/* Prev Slide (Left) */
+.carousel-card.prev {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(0.85) translateZ(-100px) rotateY(15deg);
+    z-index: 5;
+    filter: brightness(0.5);
+}
+
+/* Hidden Slides */
+.carousel-card.hidden {
+    opacity: 0;
+    transform: scale(0);
+    z-index: 0;
+}
+
+/* Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+    pointer-events: none;
+    /* Let clicks pass through to cards */
+    z-index: 20;
+}
+
+.control-btn {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .event-carousel-container {
+        height: 350px;
+    }
+
+    .carousel-card {
+        width: 80%;
+    }
+
+    .carousel-card.next {
+        transform: translateX(15%) scale(0.85) translateZ(-100px) rotateY(-5deg);
+    }
+
+    .carousel-card.prev {
+        transform: translateX(-15%) scale(0.85) translateZ(-100px) rotateY(5deg);
+    }
+}

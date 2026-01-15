@@ -20,11 +20,15 @@
   /* --bg: #0c0c0c; */
   /* --bg: #e3e3db; */
   /* --bg: #F2F3F5; */
-  --bg: #FAEBD7;
+  /* --bg: #FAEBD7; */
+  /* --bg: #050505; */
+  --bg: #fff0f5;
 
   --bg200: rgba(227, 227, 219, 0.25);
   /* --fg: azure; */
-  --fg: #0f0f0f;
+  /* --fg: #0f0f0f; */
+  /* --fg: #f0f0f0; */
+  --fg: #1a1a1a;
   --fg200: #1f1f1f;
   --ht: azure;
 }
@@ -38,10 +42,31 @@
 body {
   font-family: "BankGothic";
   background-color: var(--bg);
+  background: linear-gradient(-45deg, #FF512F, #DD2476, #00C9FF, #92FE9D);
+  background-size: 400% 400%;
+  animation: gradient-bg 15s ease infinite;
   color: var(--fg);
   /* overflow-x: hidden; */
   font-weight: 400;
   font-style: normal;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Blobs removed for particle background */
+
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 img {

@@ -7,6 +7,7 @@ import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import Reviews from "../../components/Reviews/Reviews";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
+import CelebrityReveal from "../../components/CelebrityReveal/CelebrityReveal";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -361,26 +362,36 @@ const Home = () => {
 
         <section className="hobbies">
           <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              WEDDINGS
-            </AnimatedCopy>
+            <Link to="/events/weddings" style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}>
+              <AnimatedCopy tag="h4" animateOnScroll={true}>
+                WEDDINGS
+              </AnimatedCopy>
+            </Link>
           </div>
           <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              CORPORATE EVENTS
-            </AnimatedCopy>
+            <Link to="/events/corporate-events" style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}>
+              <AnimatedCopy tag="h4" animateOnScroll={true}>
+                CORPORATE EVENTS
+              </AnimatedCopy>
+            </Link>
           </div>
           <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              SOCIAL EVENTS
-            </AnimatedCopy>
+            <Link to="/events/social-events" style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}>
+              <AnimatedCopy tag="h4" animateOnScroll={true}>
+                SOCIAL EVENTS
+              </AnimatedCopy>
+            </Link>
           </div>
           <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              SPORTS EVENTS
-            </AnimatedCopy>
+            <Link to="/events/sports-events" style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}>
+              <AnimatedCopy tag="h4" animateOnScroll={true}>
+                SPORTS EVENTS
+              </AnimatedCopy>
+            </Link>
           </div>
         </section>
+
+        <CelebrityReveal />
 
         <ContactForm />
         <Footer />
