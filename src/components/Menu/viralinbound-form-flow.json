@@ -1,0 +1,84 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "89ee3909-c9b3-456c-9adb-f8f30f9f0694",
+        "options": {}
+      },
+      "id": "e6f47b2a-7b8c-4d3a-9e12-887766554433",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "contact",
+        "operation": "upsert",
+        "email": "={{$json.body.email}}",
+        "additionalFields": {
+          "firstName": "={{$json.body.firstName}}",
+          "lastName": "={{$json.body.lastName}}",
+          "mobile": "={{$json.body.countryCode + $json.body.phone}}",
+          "description": "={{$json.body.message}}"
+        }
+      },
+      "id": "f5e4d3c2-b1a0-4c9d-8e7f-6d5c4b3a2e1d",
+      "name": "Zoho Bigin: Upsert Contact",
+      "type": "n8n-nodes-base.zohoBigin",
+      "typeVersion": 1,
+      "position": [
+        470,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "deal",
+        "dealName": "=Inquiry: {{$json.body.company}}",
+        "pipelineId": "Standard",
+        "stageId": "Qualification",
+        "additionalFields": {
+          "contactId": "={{$node[\"Zoho Bigin: Upsert Contact\"].json[\"id\"]}}",
+          "description": "={{$json.body.message}}"
+        }
+      },
+      "id": "a1b2c3d4-e5f6-4g7h-8i9j-0k1l2m3n4o5p",
+      "name": "Zoho Bigin: Create Deal",
+      "type": "n8n-nodes-base.zohoBigin",
+      "typeVersion": 1,
+      "position": [
+        690,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Zoho Bigin: Upsert Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Zoho Bigin: Upsert Contact": {
+      "main": [
+        [
+          {
+            "node": "Zoho Bigin: Create Deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

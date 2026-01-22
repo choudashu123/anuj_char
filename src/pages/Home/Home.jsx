@@ -358,6 +358,8 @@ const Home = () => {
 
         {/* <section className="dummy-experiment" ref={dummyRef}>Hello</section> */}
         <Reviews />
+        <CelebrityReveal />
+
         <Carousel />
 
         <section className="hobbies">
@@ -391,7 +393,6 @@ const Home = () => {
           </div>
         </section>
 
-        <CelebrityReveal />
 
         <ContactForm />
         <Footer />
