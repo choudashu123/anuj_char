@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import eventDetails from "../../data/eventDetails";
 import EventCarousel from "./EventCarousel";
-import ContactForm from "../../components/ContactForm/ContactForm";
+
 import Footer from "../../components/Footer/Footer";
 import ReactLenis from "lenis/react";
 import "./Event.css";
@@ -46,7 +46,7 @@ const Event = () => {
                     </div>
                 </div>
 
-                <ContactForm />
+
                 <Footer />
             </div>
         </ReactLenis>

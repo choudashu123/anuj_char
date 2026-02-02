@@ -4,7 +4,7 @@ import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import eventDetails from "../../data/eventDetails";
 import EventCarousel from "../Event/EventCarousel";
 import { FiArrowUpRight } from "react-icons/fi";
-import ContactForm from "../../components/ContactForm/ContactForm";
+
 import Footer from "../../components/Footer/Footer";
 import ReactLenis from "lenis/react";
 import "./Events.css";
@@ -82,7 +82,7 @@ const Events = () => {
                     </div>
                 </div>
 
-                <ContactForm />
+
                 <Footer />
             </div>
         </ReactLenis>
