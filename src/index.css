@@ -123,7 +123,7 @@ h5 {
 }
 
 p {
-  font-family: "Messina Sans";
+  font-family: "Messina Sans Mono";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -139,7 +139,7 @@ p.primary {
 }
 
 p.secondary {
-  font-family: "Messina Sans";
+  font-family: "Messina Sans Mono";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -155,7 +155,7 @@ p.primary.sm {
 }
 
 p.secondary.sm {
-  font-family: "Messina Sans";
+  font-family: "Messina Sans Mono";
   font-size: 0.8rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -187,7 +187,7 @@ textarea:focus {
   outline: none;
   width: 100%;
   padding: 1em;
-  font-family: "Messina Sans";
+  font-family: "Messina Sans Mono";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -196,7 +196,7 @@ textarea:focus {
 
 input::placeholder,
 textarea::placeholder {
-  font-family: "Messina Sans";
+  font-family: "Messina Sans Mono";
   font-size: 1rem;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;

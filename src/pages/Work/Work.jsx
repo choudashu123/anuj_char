@@ -5,6 +5,10 @@ import "./Work.css";
 
 import { gsap } from "gsap";
 
+import ContactForm from "../../components/ContactForm/ContactForm";
+import Footer from "../../components/Footer/Footer";
+import ReactLenis from "lenis/react";
+
 import Transition from "../../components/Transition/Transition";
 
 const Work = () => {
@@ -139,37 +143,42 @@ const Work = () => {
   };
 
   return (
-    <div className="page work">
-      <div className="work-carousel">
-        <div className="work-slider-img" ref={workSliderImgRef}>
-          <img src={activeProject.image} alt={activeProject.title} />
-        </div>
+    <ReactLenis root>
+      <div className="page work">
+        <div className="work-carousel">
+          <div className="work-slider-img" ref={workSliderImgRef}>
+            <img src={activeProject.image} alt={activeProject.title} />
+          </div>
 
-        <div className="work-items-preview-container">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className={`work-item ${activeProject.id === project.id ? "active" : ""
-                }`}
-              onClick={() => handleWorkItemClick(project)}
-            >
-              <img src={project.image} alt={project.title} />
+          <div className="work-items-preview-container">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className={`work-item ${activeProject.id === project.id ? "active" : ""
+                  }`}
+                onClick={() => handleWorkItemClick(project)}
+              >
+                <img src={project.image} alt={project.title} />
+              </div>
+            ))}
+          </div>
+
+          <div className="carousel-info">
+            <div className="carousel-description" ref={carouselDescriptionRef}>
+              <p className="primary sm">{activeProject.description}</p>
             </div>
-          ))}
+            <div className="carousel-title" ref={carouselTitleRef}>
+              <Link to="/sample-project">
+                <h1 className="project-title-123">{activeProject.title}</h1>
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="carousel-info">
-          <div className="carousel-description" ref={carouselDescriptionRef}>
-            <p className="primary sm">{activeProject.description}</p>
-          </div>
-          <div className="carousel-title" ref={carouselTitleRef}>
-            <Link to="/sample-project">
-              <h1 className="project-title-123">{activeProject.title}</h1>
-            </Link>
-          </div>
-        </div>
+        <ContactForm />
+        <Footer />
       </div>
-    </div>
+    </ReactLenis>
   );
 };
 

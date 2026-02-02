@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 const Menu = () => {
   const menuLinks = [
     { path: "/", label: "Home" },
-    { path: "/work", label: "Work" },
+    { path: "/events", label: "Events" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
     { path: "/faq", label: "FAQ" },

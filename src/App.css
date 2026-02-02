@@ -1,0 +1,3 @@
+body.is-scrolling iframe {
+    pointer-events: none;
+}

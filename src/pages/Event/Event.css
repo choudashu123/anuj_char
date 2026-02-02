@@ -17,14 +17,15 @@
 .event-hero-content h1 {
     font-size: 8vw;
     margin-bottom: 0.2em;
-    color: var(--ht);
+    color: black;
+    /* color: var(--ht); */
 }
 
 .event-hero-content h2 {
     font-size: 3vw;
     color: var(--fg);
     opacity: 0.8;
-    font-family: "Messina Sans";
+    font-family: "Messina Sans Mono";
     text-transform: none;
 }
 

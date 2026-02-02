@@ -28,8 +28,8 @@ const Footer = () => {
             <span>&#8594;</span>
           </Link>
 
-          <Link to="/work" className="footer-nav-item">
-            <span>Work</span>
+          <Link to="/events" className="footer-nav-item">
+            <span>Events</span>
             <span>&#8594;</span>
           </Link>
 
