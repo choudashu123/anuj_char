@@ -13,7 +13,7 @@ import CelebrityReveal from "../../components/CelebrityReveal/CelebrityReveal";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ReactLenis from "lenis/react";
+import ReactLenis, { useLenis } from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +24,17 @@ import Carousel from "../../components/Gallery2/Carousel";
 import { cloudyNight } from "ionicons/icons";
 import SplineDemo from "./Spline";
 import ImageGallerySlider from "../../components/Carousel/ImageGallerySlider";
+
+const ScrollFix = () => {
+  useLenis(({ isScrolling }) => {
+    if (isScrolling) {
+      document.body.classList.add("is-scrolling");
+    } else {
+      document.body.classList.remove("is-scrolling");
+    }
+  });
+  return null;
+};
 
 const Home = () => {
   const workItems = Array.isArray(workList) ? workList : [];
@@ -265,6 +276,7 @@ const Home = () => {
 
   return (
     <ReactLenis root>
+      <ScrollFix />
       <div className="page home">
         <section className="hero" ref={heroRef}>
           <div className="hero-img" ref={heroImgRef}>
@@ -337,8 +349,7 @@ const Home = () => {
 
           <div className="home-work-list">
             {workItems.map((work, index) => (
-              <Link
-                to="/sample-project"
+              <div
                 key={work.id}
                 className="home-work-item"
               >
@@ -358,7 +369,7 @@ const Home = () => {
                   />
                 </div>
                 <h4>{work.category}</h4>
-              </Link>
+              </div>
             ))}
           </div>
         </section>

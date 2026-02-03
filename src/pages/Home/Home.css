@@ -243,6 +243,7 @@ h4 {
   width: 560px;
   height: 315px;
   border-radius: 1em;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -250,6 +251,10 @@ h4 {
     width: 70vw;
     height: 30vh;
   }
+}
+
+.is-scrolling iframe {
+  pointer-events: none;
 }
 
 .hobbies {
