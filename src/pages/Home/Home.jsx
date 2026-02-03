@@ -263,7 +263,6 @@ const Home = () => {
 
 
 
-        {/* <section className="dummy-experiment" ref={dummyRef}>Hello</section> */}
         <Reviews />
         <CelebrityReveal />
 
