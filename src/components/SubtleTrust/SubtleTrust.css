@@ -1,0 +1,119 @@
+.subtle-trust-section {
+    padding: 10em 2em;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.subtle-trust-header {
+    text-align: center;
+    margin-bottom: 6em;
+}
+
+.subtle-trust-header h2 {
+    font-size: 3.5vw;
+    margin-bottom: 0.5em;
+    color: var(--fg);
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+}
+
+.subtle-trust-header p {
+    font-family: "Messina Sans Mono";
+    font-size: 1.1rem;
+    opacity: 0.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.subtle-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3em;
+    padding: 0 2em;
+}
+
+.subtle-trust-card {
+    position: relative;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.05);
+    aspect-ratio: 4 / 5;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.subtle-trust-card .image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    filter: brightness(1.02) contrast(1.05);
+    transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.subtle-trust-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    /* Slight zoom for headroom */
+    transition: transform 0.6s ease;
+}
+
+.soft-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 80%, rgba(255, 255, 255, 0.1));
+    pointer-events: none;
+}
+
+/* Hover Effects */
+.subtle-trust-card:hover {
+    transform: translateY(-15px);
+}
+
+.subtle-trust-card:hover .image-container {
+    filter: brightness(1.05) contrast(1.1);
+}
+
+.subtle-trust-card:hover img {
+    transform: scale(1);
+}
+
+@media (max-width: 1024px) {
+    .subtle-trust-header h2 {
+        font-size: 8vw;
+    }
+
+    .subtle-trust-grid {
+        display: none;
+    }
+
+    .subtle-trust-section {
+        padding: 6em 1.25em;
+        overflow: hidden;
+    }
+
+    .trust-mobile-swiper {
+        padding-bottom: 50px !important;
+        width: 100vw;
+        margin-left: -1.25em;
+        padding-left: 20px;
+        /* Padding for the active slide focus */
+        padding-right: 20px;
+    }
+
+    .trust-mobile-swiper .subtle-trust-card {
+        aspect-ratio: 1 / 1.2;
+    }
+
+    .swiper-pagination-bullet {
+        background: var(--fg) !important;
+        opacity: 0.2;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 0.8;
+    }
+}

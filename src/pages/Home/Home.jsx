@@ -9,7 +9,7 @@ import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import Reviews from "../../components/Reviews/Reviews";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
-import CelebrityReveal from "../../components/CelebrityReveal/CelebrityReveal";
+import SubtleTrust from "../../components/SubtleTrust/SubtleTrust";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -24,6 +24,7 @@ import Carousel from "../../components/Gallery2/Carousel";
 import { cloudyNight } from "ionicons/icons";
 import SplineDemo from "./Spline";
 import ImageGallerySlider from "../../components/Carousel/ImageGallerySlider";
+import ModernCarousel from "../../components/ModernCarousel/ModernCarousel";
 
 const ScrollFix = () => {
   useLenis(({ isScrolling }) => {
@@ -231,11 +232,9 @@ const Home = () => {
         img,
         {
           scale: 0.7,
-          opacity: 0,
         },
         {
           scale: 1,
-          opacity: 1,
           ease: "none",
           scrollTrigger: {
             trigger: img,
@@ -328,9 +327,9 @@ const Home = () => {
 
 
         <section ref={stickyWorkHeaderRef} className="sticky-work-header">
-          <AnimatedCopy tag="h1" animateOnScroll="true">
+          {/* <AnimatedCopy tag="h1" animateOnScroll="true">
             <span>Char selects</span>
-          </AnimatedCopy>
+          </AnimatedCopy> */}
           <model-viewer
             className="mic1"
             id="play_button"
@@ -374,10 +373,11 @@ const Home = () => {
           </div>
         </section>
 
-        <Reviews />
-        <CelebrityReveal />
+        {/* <Reviews /> */}
+        <SubtleTrust />
 
-        <Carousel />
+        {/* <Carousel /> */}
+        <ModernCarousel />
 
         <section className="hobbies">
           <div className="hobby">
@@ -408,6 +408,22 @@ const Home = () => {
             <Link to="/events" className="hobby-link">
               <AnimatedCopy tag="h4" animateOnScroll={true}>
                 SPORTS EVENTS
+              </AnimatedCopy>
+              <FiArrowUpRight className="hobby-icon" />
+            </Link>
+          </div>
+          <div className="hobby">
+            <Link to="/events" className="hobby-link">
+              <AnimatedCopy tag="h4" animateOnScroll={true}>
+                SHOOTS
+              </AnimatedCopy>
+              <FiArrowUpRight className="hobby-icon" />
+            </Link>
+          </div>
+          <div className="hobby">
+            <Link to="/events" className="hobby-link">
+              <AnimatedCopy tag="h4" animateOnScroll={true}>
+                VOICE OVERS
               </AnimatedCopy>
               <FiArrowUpRight className="hobby-icon" />
             </Link>
