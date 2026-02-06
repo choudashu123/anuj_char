@@ -29,6 +29,12 @@ const celebrities = [
         event: "Dance Reality Show Finale",
         image: "/home/carousel-5-min.JPG",
     },
+    {
+        id: 6,
+        name: "Amitabh Bachchan",
+        event: "Tech Summit Keynote",
+        image: "/home/carousel-6-min.JPG",
+    },
 ];
 
 export default celebrities;
