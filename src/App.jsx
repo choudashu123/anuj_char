@@ -9,7 +9,7 @@ import Home from "./pages/Home/Home";
 import Work from "./pages/Work/Work";
 import Project from "./pages/Project/Project";
 import About from "./pages/About/About";
-import FAQ from "./pages/FAQ/FAQ";
+import Gallery from "./pages/Gallery/Gallery";
 import Contact from "./pages/Contact/Contact";
 import Events from "./pages/Events/Events";
 import Event from "./pages/Event/Event";
@@ -41,7 +41,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/work" element={<Work />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<Event />} />

@@ -9,7 +9,7 @@ const Menu = () => {
     { path: "/", label: "Home" },
     { path: "/events", label: "Events" },
     { path: "/contact", label: "Contact" },
-    { path: "/faq", label: "FAQ" },
+    { path: "/gallery", label: "Gallery" },
   ];
 
   const location = useLocation();
