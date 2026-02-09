@@ -38,6 +38,26 @@ const eventDetails = {
             "/home/carousel-4-min.jpg",
             "/home/carousel-6-min.JPG",
         ]
+    },
+    "voices": {
+        title: "Voices",
+        subtitle: "The Power of Sound",
+        description: "From voiceovers for commercials to narrations for documentaries, I provide a versatile and engaging vocal presence that brings your script to life.",
+        images: [
+            "/home/carousel-1-min.JPG",
+            "/home/carousel-3-min.JPG",
+            "/home/carousel-5-min.JPG",
+        ]
+    },
+    "shoots": {
+        title: "Shoots",
+        subtitle: "Capturing the Essence",
+        description: "Whether it's a high-fashion editorial or a commercial shoot, I bring a professional demeanor and a focus on capturing the perfect moment.",
+        images: [
+            "/home/carousel-2-min.jpg",
+            "/home/carousel-4-min.jpg",
+            "/home/carousel-7-min.jpg",
+        ]
     }
 };
 
